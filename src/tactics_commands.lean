@@ -1,3 +1,5 @@
+import data.multiset
+
 import tactic.abel
 import tactic.ring
 import tactic.linarith
@@ -30,4 +32,36 @@ end where_demo
 
 -- #find
 
-#find
+#find (_ : nat) + (_ + _) = _ + _
+
+-- alternatives
+--  * use auto completion
+--  * use Ctrl-T (maybe Cmd-T on MacOS)
+--  * grep for it!
+
+-- #print instances
+
+#print classes
+
+#print instances add_group
+
+-- rcases
+
+example (p : ℕ → Prop) (h : ∃i, i = 0 ∧ p i) : p 0 :=
+begin
+  /- `rcases` is for "recursive" cases, i.e. nested patterns. `rfl` performs subsitution -/
+  rcases h with ⟨_, rfl, h⟩,
+  exact h
+end
+
+example (p : ℕ → Prop) : (∃i, i = 0 ∧ p i) → p 0 :=
+begin
+  rintros ⟨_, rfl, h⟩,
+  exact h
+end
+
+example {α} (p : multiset α → Prop) (h : ∀ l, p l) (m : multiset α) : p m :=
+begin
+  rcases m with ⟨l⟩, --< works also for quotients
+  exact h l
+end

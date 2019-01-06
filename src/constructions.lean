@@ -1,17 +1,26 @@
-import
+import algebra.ordered_field
+import order.filter
+
+/- Adjoin an element to α -/
 
 #check with_top
 #check with_bot
 #check with_zero
 
-#check nonneg_ring
+/- Construct a ordered group or ring -/
+
 #check nonneg_comm_group
+#check nonneg_ring
+#check linear_nonneg_ring
+
+/- -/
 
 #check galois_insertion
 
-#print filter.complete_lattice
+#check filter.lattice.complete_lattice
 
 #check filter.map
 #check filter.comap
-#check filter.comap
+
+
 
