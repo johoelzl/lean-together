@@ -5,3 +5,4 @@ lean_version = "master"
 path = "src"
 
 [dependencies]
+mathlib = {path = "../mathlib"}
